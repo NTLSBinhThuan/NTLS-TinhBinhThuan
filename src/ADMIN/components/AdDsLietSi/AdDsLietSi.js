@@ -21,13 +21,13 @@ const AdDsLietSi = ({
       })
       .join(" ");
   }
+
   const renderDanhSach = useMemo(() => {
     return lietSiOnCurrentPage.map(lietsi => {
       return (
-        <div className="bt  b--moon-gray dark-gray pa2 f8" key={lietsi.mahoso}>
+        <div className="bt b--moon-gray dark-gray pa2 f8" key={lietsi.mahoso}>
           <div className="dib width3per">{lietsi.mahoso}</div>
-          <div className="dib  w-10 ">{titleCase(lietsi.ho)}</div>
-          <div className="dib width5per">{titleCase(lietsi.ten)}</div>
+          <div className="dib w-20">{titleCase(lietsi.hovaten)}</div>
           <div className="dib w-20">{titleCase(lietsi.quequan)}</div>
           <div className="dib w-10">{lietsi.namsinh}</div>
           <div className="dib w-10">{lietsi.nammat}</div>
@@ -42,9 +42,10 @@ const AdDsLietSi = ({
       );
     });
   }, [lietSiOnCurrentPage]);
+
   return (
     <div>
-      <div className=" w-90 Tablemargin  br2 shadow-4 dib pa3 bg-white">
+      <div className="w-90 Tablemargin br2 shadow-4 dib pa3 bg-white">
         <div className="pa2 gray f7">
           <strong
             className="dib width3per pointer grow hover-black"
@@ -53,16 +54,10 @@ const AdDsLietSi = ({
             &nbsp;&nbsp;&nbsp;&nbsp;MÃ
           </strong>
           <strong
-            className="dib w-10 pointer grow hover-black"
+            className="dib w-20 pointer grow hover-black"
             onClick={() => SortBy("hovaten")}
           >
-            &nbsp;&nbsp;&nbsp;HỌ
-          </strong>
-          <strong
-            className="dib width5per pointer grow hover-black"
-            onClick={() => SortBy("ten")}
-          >
-            &nbsp;&nbsp;&nbsp;TÊN
+            &nbsp;&nbsp;&nbsp;HỌ VÀ TÊN
           </strong>
           <strong
             className="dib w-20 pointer grow hover-black"

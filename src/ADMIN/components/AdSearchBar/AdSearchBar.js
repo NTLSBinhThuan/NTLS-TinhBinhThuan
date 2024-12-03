@@ -7,7 +7,6 @@ export const AdSearchBar = ({ onSearchClick }) => {
     let thongTinCanTim;
     thongTinCanTim = {
       hovaten: "",
-      ten: "",
       quequan: "",
       namsinh: "",
       nammat: "",
@@ -16,7 +15,6 @@ export const AdSearchBar = ({ onSearchClick }) => {
       mo: "",
     };
     thongTinCanTim.hovaten = document.getElementById("hovaten").value;
-    thongTinCanTim.ten = document.getElementById("ten").value;
     thongTinCanTim.quequan = document.getElementById("quequan").value;
     thongTinCanTim.namsinh = document.getElementById("namsinh").value;
     thongTinCanTim.nammat = document.getElementById("nammat").value;
@@ -29,7 +27,6 @@ export const AdSearchBar = ({ onSearchClick }) => {
     let thongTinCanTim;
     thongTinCanTim = {
       hovaten: "",
-      ten: "",
       quequan: "",
       namsinh: "",
       nammat: "",
@@ -38,7 +35,6 @@ export const AdSearchBar = ({ onSearchClick }) => {
       mo: "",
     };
     document.getElementById("hovaten").value = "";
-    document.getElementById("ten").value = "";
     document.getElementById("quequan").value = "";
     document.getElementById("namsinh").value = "";
     document.getElementById("nammat").value = "";
@@ -62,13 +58,6 @@ export const AdSearchBar = ({ onSearchClick }) => {
             className="Searchbarfontsize outline-0 tc input-reset br2 b--black-05 hover-bg-light-gray  dib w4 ma1 "
             type="text"
             placeholder="Họ Và Tên"
-          />
-          <input
-            id="ten"
-            onKeyPress={inputEnter}
-            className="Searchbarfontsize outline-0 tc input-reset br2 b--black-05 hover-bg-light-gray  dib w3 ma1"
-            type="text"
-            placeholder="Tên"
           />
           <input
             id="quequan"

@@ -11,8 +11,6 @@ import { AdTextEditor } from "../AdTextEditor/AdTextEditor";
 export const AdEditorCreate = ({ action, LietSi = {} }) => {
   const [err, setErr] = useState("");
   const [mahoso, setMaHoSo] = useState(LietSi.mahoso || "");
-  const [ho, setHo] = useState(LietSi.ho || "");
-  const [ten, setTen] = useState(LietSi.ten || "");
   const [quequan, setQueQuan] = useState(LietSi.quequan || "");
   const [namsinh, setNamSinh] = useState(LietSi.namsinh || "");
   const [nammat, setNamMat] = useState(LietSi.nammat || "");
@@ -22,15 +20,14 @@ export const AdEditorCreate = ({ action, LietSi = {} }) => {
   const [chucvu, setChucVu] = useState(LietSi.chucvu || "");
   const [donvi, setDonVi] = useState(LietSi.donvi || "");
   const [tieusu, setTieusu] = useState(LietSi.tieusu || "");
+  const [hovaten, setHoVaTen] = useState(LietSi.hovaten || "");
 
   const SaveClick = () => {
     console.log(tieusu);
     if (action === "create") {
       fireBaseStore.doCreateLietsi({
         mahoso,
-        ho,
-        ten,
-        hovaten: ho + " " + ten,
+        hovaten,
         quequan,
         namsinh,
         nammat,
@@ -44,9 +41,7 @@ export const AdEditorCreate = ({ action, LietSi = {} }) => {
     } else if (action === "edit") {
       fireBaseStore.doEditLietsi(LietSi, {
         mahoso,
-        ho,
-        ten,
-        hovaten: ho + " " + ten,
+        hovaten,
         quequan,
         namsinh,
         nammat,
@@ -63,8 +58,6 @@ export const AdEditorCreate = ({ action, LietSi = {} }) => {
   function resetState() {
     setErr("");
     setMaHoSo(LietSi.mahoso || "");
-    setHo(LietSi.ho || "");
-    setTen(LietSi.ten || "");
     setQueQuan(LietSi.quequan || "");
     setNamSinh(LietSi.namsinh || "");
     setNamMat(LietSi.nammat || "");
@@ -112,19 +105,12 @@ export const AdEditorCreate = ({ action, LietSi = {} }) => {
                   setMaHoSo(val.target.value);
                 }}
               />
-              <div className="dib SearchBarfontsize b w3">Họ:</div>
+              <div className="dib SearchBarfontsize b w3">Họ và tên:</div>
               <input
-                className="SearchBarfontsize outline-0 tc input-reset br2 b--black-05 hover-bg-light-gray  dib w4 ma1 "
+                className="SearchBarfontsize outline-0 tc input-reset br2 b--black-05 hover-bg-light-gray  dib w5 ma1"
                 type="text"
-                value={ho}
-                onChange={(val) => setHo(val.target.value)}
-              />
-              <div className="dib SearchBarfontsize b ml3">Tên:</div>
-              <input
-                className="SearchBarfontsize outline-0 tc input-reset br2 b--black-05  hover-bg-light-gray dib w4 ma1"
-                type="text"
-                value={ten}
-                onChange={(val) => setTen(val.target.value)}
+                value={hovaten}
+                onChange={(val) => setHoVaTen(val.target.value)}
               />
             </div>
             <text className={"red"}>{err}</text>
