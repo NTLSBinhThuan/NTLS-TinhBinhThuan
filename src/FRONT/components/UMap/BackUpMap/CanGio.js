@@ -38,7 +38,7 @@ export const UMap = ({ lietSiDangHienThi, OnSearchClick }) => {
           />
           
           <path 
-            id="24"
+            id="D1"
             onClick={TimTheoLo}
             className="L24 hover-bg-gray"
             fill="#E0E0E0"

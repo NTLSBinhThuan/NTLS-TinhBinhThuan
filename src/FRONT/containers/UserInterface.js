@@ -75,6 +75,15 @@ export const UserInterface = () => {
     <>
       <div className={styles["full-body"]}>
         <Uheader length={danhSachLietSi.length} />
+
+        <div className={styles["search-bar"]}>
+          <USearchBar onSearchClick={onSearchClick} />
+        </div>
+
+        <div className={`${styles["map"]} ${!isListVisible ? styles["map-full-width"] : ""}`}>
+            <UMap lietSiDangHienThi={lietSiDangHienThi} OnSearchClick={onSearchWithLo} />
+        </div>
+
         <div className={styles["map-and-list"]}>
           {isListVisible && (
             <div className={styles["list"]}>
@@ -99,18 +108,12 @@ export const UserInterface = () => {
               Danh sách Liệt sĩ
             </button>
           )}
-          <div className={`${styles["map"]} ${!isListVisible ? styles["map-full-width"] : ""}`}>
-            <UMap lietSiDangHienThi={lietSiDangHienThi} OnSearchClick={onSearchWithLo} />
+          <div className={styles["info"]}>
+            <UPosition lietSiDangHienThi={lietSiDangHienThi} />
+            <UAdditonalInfo lietSiDangHienThi={lietSiDangHienThi} />
           </div>
         </div>
 
-        <div className={styles["search-bar"]}>
-          <USearchBar onSearchClick={onSearchClick} />
-        </div>
-        <div className={styles["info"]}>
-          <UPosition lietSiDangHienThi={lietSiDangHienThi} />
-          <UAdditonalInfo lietSiDangHienThi={lietSiDangHienThi} />
-        </div>
         <footer className={styles["footer"]}>
           <p>© Thực hiện bởi <img src="./img/logo copy.png"/> Hội sinh viên trường Đại học Công nghệ Thông tin, ĐHQG-HCM</p>
         </footer>

@@ -10,6 +10,16 @@ function Cell({
 }) {
   return (
     <>
+      <text
+        fontFamily="'MyriadPro-Semibold'"
+        fontSize="700px"
+        transform={`${textTransform} scale(1,-1)`}
+        id={id}
+        className="hover-bg-gray"
+        onClick={cellFindingHandler}
+      >
+        {textContent}
+      </text>
       <path
         id={id}
         onClick={cellFindingHandler}
@@ -19,16 +29,7 @@ function Cell({
         strokeWidth="2"
         d={pathDef}
       />
-      <text
-        fontFamily="'MyriadPro-Semibold'"
-        fontSize="400px"
-        transform={`${textTransform} scale(1,-1)`}
-        id={id}
-        className="hover-bg-gray"
-        onClick={cellFindingHandler}
-      >
-        {textContent}
-      </text>
+
     </>
   );
 }
