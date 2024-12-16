@@ -44,7 +44,7 @@ export const UAdditonalInfo = ({ lietSiDangHienThi }) => {
           borderWidth: "1px 0 0 0",
           borderStyle: "solid",
           borderColor: "#c7c7be",
-          // margin: "0 15px 0 15px",
+          // margin: "0 15px 0 15px"
         }}
       >
         <div className={"additionalInfoHeader"}>ĐƠN VỊ</div>
