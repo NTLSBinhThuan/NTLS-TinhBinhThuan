@@ -16,7 +16,7 @@ export const UAdditonalInfo = ({ lietSiDangHienThi }) => {
         }}
       >
         <div className={"additionalInfoHeader"}>AN TÁNG TẠI</div>
-        <div>Nghĩa trang Liệt sĩ Rừng Sác Cần Giờ</div>
+        <div>Nghĩa trang Liệt sĩ Tỉnh Bình Thuận</div>
       </div>
       <div
         style={{
@@ -65,9 +65,9 @@ export const UAdditonalInfo = ({ lietSiDangHienThi }) => {
       >
         <div className={"additionalInfoHeader"}>LIÊN HỆ</div>
         <div className={""}>
-        Nghĩa trang Liệt sĩ Rừng Sác Cần Giờ, TPHCM  
+        Nghĩa trang Liệt sĩ Tỉnh Bình Thuận  
         </div>
-        <div className={""}>☎ 0365 875 814</div>
+        <div className={""}>☎ 0xxx xxx xxx</div>
       </div>
       <div
         className={" white"}
