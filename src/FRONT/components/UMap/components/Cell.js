@@ -12,7 +12,7 @@ function Cell({
     <>
       <text
         fontFamily="'MyriadPro-Semibold'"
-        fontSize="700px"
+        fontSize="800px"
         transform={`${textTransform} scale(1,-1)`}
         id={id}
         className="hover-bg-gray"

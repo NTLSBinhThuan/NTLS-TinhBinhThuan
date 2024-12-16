@@ -80,38 +80,31 @@ export const UserInterface = () => {
           <USearchBar onSearchClick={onSearchClick} />
         </div>
 
-        <div className={`${styles["map"]} ${!isListVisible ? styles["map-full-width"] : ""}`}>
-            <UMap lietSiDangHienThi={lietSiDangHienThi} OnSearchClick={onSearchWithLo} />
-        </div>
 
-        <div className={styles["map-and-list"]}>
-          {isListVisible && (
-            <div className={styles["list"]}>
-              <USideBar
-                DanhSachLietSi={danhSachLietSi}
-                setLietSiDangHienThi={setLietSiDangHienThi}
-                CurrentPage={currentPage}
-                lietSiDangHienThi={lietSiDangHienThi}
-              />
-              <UPagination
-                DanhSachLietSi={danhSachLietSi}
-                CurrentPage={currentPage}
-                OnPageChoose={onPageChoose}
-              />
-              <button className={styles["toggle-button"]} onClick={toggleListVisibility}>
-                Ẩn danh sách
-              </button>
-            </div>
-          )}
-          {!isListVisible && (
-            <button className={styles["show-list-button"]} onClick={toggleListVisibility}>
-              Danh sách Liệt sĩ
-            </button>
-          )}
+
+        <div className={styles["list-and-info"]}>
+          <div className={styles["list"]}>
+            <USideBar
+              DanhSachLietSi={danhSachLietSi}
+              setLietSiDangHienThi={setLietSiDangHienThi}
+              CurrentPage={currentPage}
+              lietSiDangHienThi={lietSiDangHienThi}
+            />
+            <UPagination
+              DanhSachLietSi={danhSachLietSi}
+              CurrentPage={currentPage}
+              OnPageChoose={onPageChoose}
+            />
+          </div>
+
           <div className={styles["info"]}>
             <UPosition lietSiDangHienThi={lietSiDangHienThi} />
             <UAdditonalInfo lietSiDangHienThi={lietSiDangHienThi} />
           </div>
+        </div>
+
+        <div className={`${styles["map"]} ${!isListVisible ? styles["map-full-width"] : ""}`}>
+            <UMap lietSiDangHienThi={lietSiDangHienThi} OnSearchClick={onSearchWithLo} />
         </div>
 
         <footer className={styles["footer"]}>

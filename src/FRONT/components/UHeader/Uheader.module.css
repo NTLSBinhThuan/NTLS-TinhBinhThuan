@@ -4,32 +4,39 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-color: #074f7e;
+    background-color: #65cdf5;
     color: white;
+    height: 120px;
   }
   
   .logo{
       flex: 1;
-      text-align: center;
+      text-align: right;
   }
   
   .logo img{
-      width: 100px;
+      width: 120px;
+      padding: 10px;
       height: auto;
   }
   
   .name {
-      height: 100%;
+      width: 700px;
       flex: 2;
       text-align: center;
       font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .name img{
+    width: 700px;
+    height: auto;
   }
   
   .title-dong {
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     color: white;
-    background-color: #669bcb;
+    background-color: #3d85c6;
     height: 20px;
     display: flex;
     justify-content: center; /* Căn giữa theo chiều ngang */

@@ -6,13 +6,11 @@ export const Uheader = () => {
     <div className={styles['header']}>
         <div className={styles['topContent']}>
             <div className={styles['logo']}>
-                <img src="logo.png" alt="Logo"/>
+                <img src="LogoBT.png" alt="Logo"/>
+                <img src="LogoHCM.png" alt="Logo"/>
             </div>
             <div className={styles['name']}>
-                <p>Hệ thống tra cứu thông tin mộ liệt sĩ</p>
-                <h1>
-                    Nghĩa trang Liệt sĩ Rừng Sác, Cần Giờ
-                </h1>
+                <img src="tachnen.png" alt="Logo"/>
             </div>
         </div>
         <div className={styles['title-dong']}>
@@ -21,7 +19,7 @@ export const Uheader = () => {
             </span>
         </div>
         <div className={styles['big-picture']}>
-            <img src="bannerhethong2.png" alt="Big picture"/>
+            <img src="maubannerbt.png" alt="Big picture"/>
         </div>
     </div>
   );
