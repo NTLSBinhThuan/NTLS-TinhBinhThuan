@@ -91,6 +91,17 @@
       width: 100px;
       height: auto;
   }
+
+  .big-picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .big-picture img {
+    width: 100%;
+    height: auto;
+  }
   
   .name {
       height: 100%;
