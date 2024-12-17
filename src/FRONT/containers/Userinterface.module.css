@@ -20,13 +20,14 @@
       padding: 50px;
     }
     
-    .info{
-      flex:2;
+    .info {
+      flex: 2;
       display: flex;
       height: 700px;
       padding: 50px;
-      justify-content: center;
-    }
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+  }
     .footer {
       background-color: #055ca4;
       color: #fff;

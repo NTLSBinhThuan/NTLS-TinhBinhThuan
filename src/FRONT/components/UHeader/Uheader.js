@@ -4,7 +4,7 @@ import styles from "./Uheader.module.css";
 export const Uheader = () => {
   return (
     <div className={styles['header']}>
-        <div className={styles['topContent']}>
+        {/* <div className={styles['topContent']}>
             <div className={styles['logo']}>
                 <img src="LogoBT.png" alt="Logo"/>
                 <img src="LogoHCM.png" alt="Logo"/>
@@ -12,6 +12,9 @@ export const Uheader = () => {
             <div className={styles['name']}>
                 <img src="tachnen.png" alt="Logo"/>
             </div>
+        </div> */}
+        <div className={styles['big-picture']}>
+            <img src="bonhandienBT.png" alt="Big picture"/>
         </div>
         <div className={styles['title-dong']}>
             <span>
