@@ -41,6 +41,103 @@
     .footer img{
       width: 15px;
     }
+
+    .nav-container {
+      background: linear-gradient(to right, #d69d00, #f3c23e); /* Gradient vàng nền */
+      padding: 5px;
+    }
+    
+    .button {
+      flex: 1;
+      padding: 10px 15px;
+      text-align: center;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      font-weight: bold;
+      color: #800000; /* Màu chữ đỏ sậm */
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .button.active {
+      background-color: #fff6d5; /* Màu vàng nhạt khi active */
+    }
+    
+    .button:not(:last-child) {
+      border-right: 2px solid #800000; /* Viền phải giữa các nút */
+    }
+
+    .content{
+      margin-left: 10vw;
+      margin-right: 10vw;
+      background-color: #fffbfb;
+    }
+
+
+    .nav-container-mini {
+      display: flex;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    
+    .buttonMini {
+      flex: 1;
+      padding: 8px 12px;
+      text-align: center;
+      border: none;
+      background: transparent;
+      font-size: 20px;
+      font-weight: bold;
+      color: #27baf0; /* Màu chữ đỏ sậm */
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .buttonMini.active {
+      background-color: #3e4095; /* Màu vàng nhạt khi active */
+      color:#efeff6;
+    }
+
+    .text-and-img{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #373686;
+      text-align: justify;
+      font-size: larger;
+      margin: 10px;
+      
+    }
+
+    .text{
+      flex: 2;
+      margin: 10px;
+      text-indent: 50px;
+      line-height: 30px;
+    }
+    .img{
+      flex: 1.5;
+    }
+
+    .map{
+      justify-content: center;
+    }
+
+    .congtrinh{
+      margin: 30px;
+      text-indent: 50px;
+      line-height: 30px;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #373686;
+      text-align: justify;
+    }
+    
     
 }
 
