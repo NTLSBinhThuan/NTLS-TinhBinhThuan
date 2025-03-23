@@ -187,7 +187,14 @@ export const UserInterface = () => {
       <div className={styles["full-body"]}>
         <Uheader length={danhSachLietSi.length} />
         <nav className={styles["nav-container"]}>
-          <button onClick={() => { setActiveTab("home"); setIsIntroVisible(true); }} className={`${styles.button} ${activeTab === "home" ? styles.active : ""}`}>Trang Chủ</button>
+          <button onClick={() => { setActiveTab("home"); setIsIntroVisible(true); }} 
+            className={`${styles.button} ${activeTab === "home" ? styles.active : ""}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 3.293l6 6V15h-4v-4H6v4H2v-5.707l6-6z"/>
+                    <path fillRule="evenodd" d="M7.293 2.5a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L8 4.414 2.707 9.914A1 1 0 011.293 8.5l6-6z"/>
+                </svg> 
+                Trang Chủ
+          </button>
           <button onClick={() => setActiveTab("search")} className={`${styles.button} ${activeTab === "search" ? styles.active : ""}`}>Tra cứu thông tin Liệt sĩ</button>
           <button onClick={() => setActiveTab("contact")} className={`${styles.button} ${activeTab === "contact" ? styles.active : ""}`}>Thông tin liên hệ</button>
         </nav>
@@ -196,7 +203,7 @@ export const UserInterface = () => {
       {/* Nội dung hiển thị */}
       <div className={styles["content"]}>
         {activeTab === "search" && (
-          <>
+          <div style={{ padding: '20px' }}>
             <div className={styles["search-bar"]}>
               <USearchBar onSearchClick={onSearchClick} />
             </div>
@@ -225,14 +232,14 @@ export const UserInterface = () => {
             <div className={`${styles["map"]} ${!isListVisible ? styles["map-full-width"] : ""}`}>
               <UMap lietSiDangHienThi={lietSiDangHienThi} OnSearchClick={onSearchWithLo} />
             </div>
-          </>
+          </div>
         )}
         {activeTab === "home" && (
           <>
           <nav className={styles["nav-container-mini"]}>
-            <button onClick={() => handleTabClick("gioithieu")} className={`${styles.buttonMini} ${activeTabmini === "gioithieu" ? styles.active : ""}`}>GIỚI THIỆU</button>
-            <button onClick={() => handleTabClick("congtrinh")} className={`${styles.buttonMini} ${activeTabmini === "congtrinh" ? styles.active : ""}`}>CÔNG TRÌNH THANH NIÊN</button>
-            <button onClick={() => handleTabClick("danhsach")} className={`${styles.buttonMini} ${activeTabmini === "danhsach" ? styles.active : ""}`}>DANH SÁCH ANH HÙNG - LIỆT SĨ</button>
+            <button onClick={() => {handleTabClick("gioithieu"); setIsIntroVisible(false); }} className={`${styles.buttonMini} ${activeTabmini === "gioithieu" ? styles.active : ""}`}>GIỚI THIỆU</button>
+            <button onClick={() => {handleTabClick("congtrinh"); setIsIntroVisible(false); }} className={`${styles.buttonMini} ${activeTabmini === "congtrinh" ? styles.active : ""}`}>CÔNG TRÌNH THANH NIÊN</button>
+            <button onClick={() => {handleTabClick("danhsach"); setIsIntroVisible(false); }} className={`${styles.buttonMini} ${activeTabmini === "danhsach" ? styles.active : ""}`}>DANH SÁCH ANH HÙNG - LIỆT SĨ</button>
           </nav>
                 {/* Nếu isIntroVisible = true, hiển thị giao diện giới thiệu */}
           {isIntroVisible ? (
@@ -295,9 +302,9 @@ export const UserInterface = () => {
               </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.8428468185416!2d108.19134971013099!3d11.097861353137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31769854301fb233%3A0x35580cc304f361cf!2zTmdoxKlhIHRyYW5nIExp4buHdCBz4bu5IFThu4luaCBCw6xuaCBUaHXhuq1u!5e1!3m2!1svi!2s!4v1742651072849!5m2!1svi!2s"
-                width="600"
-                height="450"
-                style={{ border: 0 }}
+                width="95%"
+                height="300"
+                style={{ border: 0, padding: '20px' }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -335,9 +342,9 @@ export const UserInterface = () => {
                       <div className={styles["map"]}>
                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.8428468185416!2d108.19134971013099!3d11.097861353137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31769854301fb233%3A0x35580cc304f361cf!2zTmdoxKlhIHRyYW5nIExp4buHdCBz4bu5IFThu4luaCBCw6xuaCBUaHXhuq1u!5e1!3m2!1svi!2s!4v1742651072849!5m2!1svi!2s"
-                        width="600"
-                        height="450"
-                        style={{ border: 0 }}
+                        width="95%"
+                        height="300"
+                        style={{ border: 0, padding: '20px' }}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
@@ -346,16 +353,18 @@ export const UserInterface = () => {
                     </>                    
                     )}
                     {activeTabmini === "congtrinh" && (
-                      <div className={styles["congtrinh"]}>
-                        <p>Công trình thanh niên “Số hóa Nghĩa trang Liệt sĩ tỉnh Bình Thuận” do Đoàn TNCS Hồ Chí Minh tỉnh Bình Thuận phối hợp với Đoàn TNCS Hồ Chí Minh TP. Hồ Chí Minh và Trường Đại học Công nghệ Thông tin TP. Hồ Chí Minh thực hiện, nhằm ứng dụng công nghệ vào công tác tri ân, tưởng niệm các anh hùng liệt sĩ. Đây không chỉ là hoạt động mang ý nghĩa sâu sắc trong việc bày tỏ lòng biết ơn đối với những người đã hy sinh vì Tổ quốc mà còn là bước đi quan trọng trong việc chuyển đổi số, góp phần nâng cao hiệu quả công tác quản lý, tra cứu và lưu trữ thông tin.</p>
-                        <p>Công trình giúp đoàn viên, thanh niên và người dân trong và ngoài tỉnh thuận tiện hơn trong việc tìm kiếm thông tin về các liệt sĩ, vị trí phần mộ, đồng thời hỗ trợ Ban quản trang trong công tác quản lý một cách khoa học và hệ thống. Không chỉ có ý nghĩa trong hiện tại, việc số hóa nghĩa trang còn đảm bảo tính bền vững, giúp lưu giữ và cập nhật thông tin một cách lâu dài, tránh nguy cơ thất lạc dữ liệu, qua đó tiếp tục truyền lại những giá trị lịch sử thiêng liêng cho thế hệ sau. </p>
-                        <p>Đây cũng là một dấu mốc quan trọng trong hành trình ứng dụng công nghệ vào các hoạt động đền ơn đáp nghĩa của tuổi trẻ Bình Thuận, mở ra hướng đi mới trong việc số hóa các địa danh, di tích lịch sử của tỉnh trong thời gian tới. Công trình không chỉ thể hiện tinh thần trách nhiệm của thế hệ trẻ đối với lịch sử mà còn là sự khẳng định vai trò tiên phong của đoàn viên, thanh niên trong quá trình chuyển đổi số, đưa công nghệ trở thành cầu nối giữa quá khứ và hiện tại, để sự hy sinh của các thế hệ cha anh luôn được khắc ghi và tri ân bằng những hành động thiết thực nhất.</p>
+                      <div security="center" style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', padding: '20px' }}>
+                        <div className={styles["congtrinh"]} >
+                          <p>Công trình thanh niên “Số hóa Nghĩa trang Liệt sĩ tỉnh Bình Thuận” do Đoàn TNCS Hồ Chí Minh tỉnh Bình Thuận phối hợp với Đoàn TNCS Hồ Chí Minh TP. Hồ Chí Minh và Trường Đại học Công nghệ Thông tin TP. Hồ Chí Minh thực hiện, nhằm ứng dụng công nghệ vào công tác tri ân, tưởng niệm các anh hùng liệt sĩ. Đây không chỉ là hoạt động mang ý nghĩa sâu sắc trong việc bày tỏ lòng biết ơn đối với những người đã hy sinh vì Tổ quốc mà còn là bước đi quan trọng trong việc chuyển đổi số, góp phần nâng cao hiệu quả công tác quản lý, tra cứu và lưu trữ thông tin.</p>
+                          <p>Công trình giúp đoàn viên, thanh niên và người dân trong và ngoài tỉnh thuận tiện hơn trong việc tìm kiếm thông tin về các liệt sĩ, vị trí phần mộ, đồng thời hỗ trợ Ban quản trang trong công tác quản lý một cách khoa học và hệ thống. Không chỉ có ý nghĩa trong hiện tại, việc số hóa nghĩa trang còn đảm bảo tính bền vững, giúp lưu giữ và cập nhật thông tin một cách lâu dài, tránh nguy cơ thất lạc dữ liệu, qua đó tiếp tục truyền lại những giá trị lịch sử thiêng liêng cho thế hệ sau. </p>
+                          <p>Đây cũng là một dấu mốc quan trọng trong hành trình ứng dụng công nghệ vào các hoạt động đền ơn đáp nghĩa của tuổi trẻ Bình Thuận, mở ra hướng đi mới trong việc số hóa các địa danh, di tích lịch sử của tỉnh trong thời gian tới. Công trình không chỉ thể hiện tinh thần trách nhiệm của thế hệ trẻ đối với lịch sử mà còn là sự khẳng định vai trò tiên phong của đoàn viên, thanh niên trong quá trình chuyển đổi số, đưa công nghệ trở thành cầu nối giữa quá khứ và hiện tại, để sự hy sinh của các thế hệ cha anh luôn được khắc ghi và tri ân bằng những hành động thiết thực nhất.</p>
+                        </div>
                       </div>
                     )}
                     {activeTabmini === "danhsach" && (
-                      <div>
+                      <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', padding: '20px' }}>
                         {/* Bảng dữ liệu */}
-                        <table style={{ width: '100%', borderCollapse: 'collapse' , fontFamily: 'Arial, sans-serif'}}>
+                        <table style={{ width: '90%', borderCollapse: 'collapse' , fontFamily: 'Arial, sans-serif', justifyContent: 'center', margin: 'auto' }}>
                           <thead>
                             <tr>
                               <th style={{ padding: '10px', border: '1px solid black', backgroundColor: '#007bff', color: 'white'}}>
@@ -382,14 +391,14 @@ export const UserInterface = () => {
                                 <td style={{ padding: '10px', border: '1px solid black' }}>{row.quequan || ''}</td>
                                 <td style={{ padding: '10px', border: '1px solid black' }}>{row.namsinh || ''}</td>
                                 <td style={{ padding: '10px', border: '1px solid black' }}>{row.nammat || ''}</td>
-                                <td style={{ padding: '10px', border: '1px solid black' }}>{`Lô: ${row.lo || ''}, Hàng: ${row.hang || ''}, Mộ: ${row.mo || ''} `}</td>
+                                <td style={{ padding: '10px', border: '1px solid black' }}>{`Khu: ${row.lo || ''}, Hàng: ${row.hang || ''}, Mộ: ${row.mo || ''} `}</td>
                               </tr>
                             ))}
                           </tbody>
                         </table>
 
                         {/* Phân trang */}
-                        <div style={{ marginTop: '20px', textAlign: 'center' }}>
+                        <div style={{ marginTop: '20px', textAlign: 'center', marginBottom: '20px' }}>
                           <button
                             onClick={() => setCurrentPageds(prev => Math.max(prev - 1, 1))}
                             disabled={currentPageds === 1}
@@ -431,62 +440,70 @@ export const UserInterface = () => {
         )
         }
         {activeTab === "contact" && (
-            <div style={{ textAlign: 'center' }}>
-            <h1>NGHĨA TRANG LIỆT SĨ TỈNH BÌNH THUẬN</h1>
+            <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', paddingTop: '10px' }}>
+              <div style={{ marginTop: '20px', padding: '10px' }}>
+                <img
+                  src={"/gioithieu/textNTLS.png"}
+                  alt="Hình ảnh hiện tại"
+                  style={{ width: '40vw',}}
+                />
+              </div>
             {/* Phần 1: Hình ảnh hiện tại */}
             <div>
               <img
                 src={images[currentIndex]}
                 alt="Hình ảnh hiện tại"
-                style={{ width: '600px', height: '400px', borderRadius: '10px' }}
+                style={{ width: '70vw', borderRadius: '10px' }}
               />
             </div>
 
             {/* Phần 2: Danh sách thumbnail */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}>
-              {/* Nút chuyển trái */}
-              <button onClick={prevImage} style={{ marginRight: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}>
-                &lt;
-              </button>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }}>
+                {/* Nút chuyển trái */}
+                <button onClick={prevImage} style={{ marginRight: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px' }}>
+                  &lt;
+                </button>
 
-              {/* Danh sách 7 thumbnail */}
-              <div style={{ display: 'flex', gap: '10px' }}>
-                {getVisibleThumbnails().map((thumbnail) => (
-                  <img
-                    key={thumbnail.index}
-                    src={thumbnail.url}
-                    alt={`Thumbnail ${thumbnail.index + 1}`}
-                    style={{
-                      width: '150px',
-                      height: '100px',
-                      borderRadius: '5px',
-                      opacity: thumbnail.index === currentIndex ? 1 : 0.6,
-                      cursor: 'pointer',
-                      border: thumbnail.index === currentIndex ? '2px solid blue' : 'none',
-                    }}
-                    onClick={() => handleThumbnailClick(thumbnail.index)}
-                  />
-                ))}
+                {/* Danh sách 7 thumbnail */}
+                <div style={{ display: 'flex', gap: '10px' }}>
+                  {getVisibleThumbnails().map((thumbnail) => (
+                    <img
+                      key={thumbnail.index}
+                      src={thumbnail.url}
+                      alt={`Thumbnail ${thumbnail.index + 1}`}
+                      style={{
+                        width: '150px',
+                        height: '100px',
+                        borderRadius: '5px',
+                        opacity: thumbnail.index === currentIndex ? 1 : 0.6,
+                        cursor: 'pointer',
+                        border: thumbnail.index === currentIndex ? '2px solid blue' : 'none',
+                      }}
+                      onClick={() => handleThumbnailClick(thumbnail.index)}
+                    />
+                  ))}
+                </div>
+
+                {/* Nút chuyển phải */}
+                <button onClick={nextImage} style={{ marginLeft: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}>
+                  &gt;
+                </button>
               </div>
-
-              {/* Nút chuyển phải */}
-              <button onClick={nextImage} style={{ marginLeft: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}>
-                &gt;
-              </button>
-            </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.8428468185416!2d108.19134971013099!3d11.097861353137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31769854301fb233%3A0x35580cc304f361cf!2zTmdoxKlhIHRyYW5nIExp4buHdCBz4bu5IFThu4luaCBCw6xuaCBUaHXhuq1u!5e1!3m2!1svi!2s!4v1742651072849!5m2!1svi!2s"
-              width="600"
-              height="450"
-              style={{ border: 0 }}
+              width="95%"
+              height="300"
+              style={{ border: 0, padding: '20px' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <h2>Thông tin liên hệ</h2>
-            <h1>NGHĨA TRANG LIỆT SĨ TỈNH BÌNH THUẬN</h1>
-            <p>Địa chỉ: Quốc lộ 1A, xã Hồng Sơn, huyện Hàm Thuận Bắc, tỉnh Bình Thuận</p>
-            <p>Điện thoại: 0252 3624088</p>
+            <div style={{ marginTop: '20px', color: '#373686', padding: '10px' }}>
+              <h2>Thông tin liên hệ</h2>
+              <h1>NGHĨA TRANG LIỆT SĨ TỈNH BÌNH THUẬN</h1>
+              <p>Địa chỉ: Quốc lộ 1A, xã Hồng Sơn, huyện Hàm Thuận Bắc, tỉnh Bình Thuận</p>
+              <p>Điện thoại: 0252 3624088</p>
+            </div>
           </div>
           )
         }
