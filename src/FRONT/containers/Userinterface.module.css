@@ -377,20 +377,14 @@
   }
   .nav-container {
     background: linear-gradient(to right, #d69d00, #f3c23e); /* Gradient vàng nền */
-    padding-left: 2vw;
-    padding-top: 5px;
-    padding-bottom: 5px;
   }
-
-
   
   .button {
     flex: 1;
-    padding: 10px 15px;
     text-align: center;
     border: none;
     background: transparent;
-    font-size: larger;
+    font-size: small;
     font-weight: bold;
     color: #800000; /* Màu chữ đỏ sậm */
     cursor: pointer;
