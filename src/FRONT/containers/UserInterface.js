@@ -352,29 +352,28 @@ export const UserInterface = () => {
                     )}
                     {activeTabmini === "danhsach" && (
                       <div className={styles["tableContainer"]}>
-                      {/* Bảng dữ liệu */}
-                      <table className={styles["table"]}>
-                        <thead>
-                          <tr>
-                            <th>Họ và tên</th>
-                            <th>Quê quán</th>
-                            <th>Năm sinh</th>
-                            <th>Năm mất</th>
-                            <th>Vị trí mộ</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {currentData.map((row, index) => (
-                            <tr key={index}>
-                              <td>{row.hovaten || ""}</td>
-                              <td>{row.quequan || ""}</td>
-                              <td>{row.namsinh || ""}</td>
-                              <td>{row.nammat || ""}</td>
-                              <td>{`Khu: ${row.lo || ""}, Hàng: ${row.hang || ""}, Mộ: ${row.mo || ""}`}</td>
+                        <table className={styles["table"]}>
+                          <thead>
+                            <tr>
+                              <th>Họ và tên</th>
+                              <th>Quê quán</th>
+                              <th>Năm sinh</th>
+                              <th>Năm mất</th>
+                              <th>Vị trí mộ</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
+                          </thead>
+                          <tbody>
+                            {currentData.map((row, index) => (
+                              <tr key={index}>
+                                <td>{row.hovaten || ""}</td>
+                                <td>{row.quequan || ""}</td>
+                                <td>{row.namsinh || ""}</td>
+                                <td>{row.nammat || ""}</td>
+                                <td>{`Khu: ${row.lo || ""}, Hàng: ${row.hang || ""}, Mộ: ${row.mo || ""}`}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
 
                       {/* Phân trang */}
                       <div className={styles["pagination"]}>

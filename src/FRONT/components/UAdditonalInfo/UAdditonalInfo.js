@@ -67,7 +67,7 @@ export const UAdditonalInfo = ({ lietSiDangHienThi }) => {
         <div className={""}>
         Nghĩa trang Liệt sĩ Tỉnh Bình Thuận  
         </div>
-        <div className={""}>☎ 0xxx xxx xxx</div>
+        <div className={""}>☎ 0252.3624088 </div>
       </div>
       <div
         className={" white"}
