@@ -331,9 +331,7 @@ export const UserInterface = () => {
                       <div className={styles["map"]}>
                       <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.8428468185416!2d108.19134971013099!3d11.097861353137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31769854301fb233%3A0x35580cc304f361cf!2zTmdoxKlhIHRyYW5nIExp4buHdCBz4bu5IFThu4luaCBCw6xuaCBUaHXhuq1u!5e1!3m2!1svi!2s!4v1742651072849!5m2!1svi!2s"
-                        width="95%"
-                        height="300"
-                        style={{ border: 0, padding: '20px' }}
+                        className={styles["mapContainer"]}
                         allowFullScreen
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
@@ -446,9 +444,7 @@ export const UserInterface = () => {
               </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.8428468185416!2d108.19134971013099!3d11.097861353137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31769854301fb233%3A0x35580cc304f361cf!2zTmdoxKlhIHRyYW5nIExp4buHdCBz4bu5IFThu4luaCBCw6xuaCBUaHXhuq1u!5e1!3m2!1svi!2s!4v1742651072849!5m2!1svi!2s"
-              width="95%"
-              height="300"
-              style={{ border: 0, padding: '20px' }}
+              className={styles["mapContainer"]}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

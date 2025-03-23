@@ -315,6 +315,13 @@
     .search-container{
       padding:20px;
     }
+
+    .mapContainer {
+      width: 90%;
+      height: 200px;
+      border: none;
+      padding: 20px;
+    }
     
 }
 
