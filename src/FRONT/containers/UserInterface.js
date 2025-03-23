@@ -203,7 +203,7 @@ export const UserInterface = () => {
       {/* Nội dung hiển thị */}
       <div className={styles["content"]}>
         {activeTab === "search" && (
-          <div style={{ padding: '20px' }}>
+          <div className={styles["search-container"]}>
             <div className={styles["search-bar"]}>
               <USearchBar onSearchClick={onSearchClick} />
             </div>
@@ -216,6 +216,7 @@ export const UserInterface = () => {
                   CurrentPage={currentPage}
                   lietSiDangHienThi={lietSiDangHienThi}
                 />
+
                 <UPagination
                   DanhSachLietSi={danhSachLietSi}
                   CurrentPage={currentPage}
@@ -243,68 +244,56 @@ export const UserInterface = () => {
           </nav>
                 {/* Nếu isIntroVisible = true, hiển thị giao diện giới thiệu */}
           {isIntroVisible ? (
-            <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif' }}>
-              <div style={{ marginTop: '20px' }}>
+            <div className={styles["miniChoose"]}>
+              <div className={styles["hinhanhgt"]}>
                 <img
                   src={"/gioithieu/textNTLS.png"}
                   alt="Hình ảnh hiện tại"
-                  style={{ width: '40vw',}}
                 />
               </div>
               
               {/* Phần 1: Hình ảnh hiện tại */}
-              <div style={{ marginTop: '20px' }}>
+              <div className={styles["hinhanhht"]}>
                 <img
                   src={images[currentIndex]}
                   alt="Hình ảnh hiện tại"
-                  style={{ width: '70vw'}}
                 />
               </div>
 
               {/* Phần 2: Danh sách thumbnail */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }}>
+              <div className={styles["dsThumbnail"]}>
                 {/* Nút chuyển trái */}
-                <button onClick={prevImage} style={{ marginRight: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px' }}>
+                <button onClick={prevImage}>
                   &lt;
                 </button>
 
                 {/* Danh sách 7 thumbnail */}
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div className={styles.dsThumbnailImg}>
                   {getVisibleThumbnails().map((thumbnail) => (
                     <img
                       key={thumbnail.index}
                       src={thumbnail.url}
                       alt={`Thumbnail ${thumbnail.index + 1}`}
-                      style={{
-                        width: '150px',
-                        height: '100px',
-                        borderRadius: '5px',
-                        opacity: thumbnail.index === currentIndex ? 1 : 0.6,
-                        cursor: 'pointer',
-                        border: thumbnail.index === currentIndex ? '2px solid blue' : 'none',
-                      }}
+                      className={thumbnail.index === currentIndex ? styles.active : ""}
                       onClick={() => handleThumbnailClick(thumbnail.index)}
                     />
                   ))}
                 </div>
 
                 {/* Nút chuyển phải */}
-                <button onClick={nextImage} style={{ marginLeft: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}>
+                <button onClick={nextImage}>
                   &gt;
                 </button>
               </div>
-              <div style={{ marginTop: '20px' }}>
+              <div className={styles["hinhanhslogan"]}>
                 <img
                   src={"/gioithieu/textSlogan.png"}
                   alt="Hình ảnh hiện tại"
-                  style={{ width: '60vw',}}
                 />
               </div>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.8428468185416!2d108.19134971013099!3d11.097861353137954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31769854301fb233%3A0x35580cc304f361cf!2zTmdoxKlhIHRyYW5nIExp4buHdCBz4bu5IFThu4luaCBCw6xuaCBUaHXhuq1u!5e1!3m2!1svi!2s!4v1742651072849!5m2!1svi!2s"
-                width="95%"
-                height="300"
-                style={{ border: 0, padding: '20px' }}
+                className={styles["mapContainer"]}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
@@ -362,77 +351,52 @@ export const UserInterface = () => {
                       </div>
                     )}
                     {activeTabmini === "danhsach" && (
-                      <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', padding: '20px' }}>
-                        {/* Bảng dữ liệu */}
-                        <table style={{ width: '90%', borderCollapse: 'collapse' , fontFamily: 'Arial, sans-serif', justifyContent: 'center', margin: 'auto' }}>
-                          <thead>
-                            <tr>
-                              <th style={{ padding: '10px', border: '1px solid black', backgroundColor: '#007bff', color: 'white'}}>
-                                Họ và tên
-                              </th>
-                              <th style={{ padding: '10px', border: '1px solid black', backgroundColor: '#007bff', color: 'white' }}>
-                                Quê quán
-                              </th>
-                              <th style={{ padding: '10px', border: '1px solid black', backgroundColor: '#007bff', color: 'white' }}>
-                                Năm sinh
-                              </th>
-                              <th style={{ padding: '10px', border: '1px solid black', backgroundColor: '#007bff', color: 'white' }}>
-                                Năm mất
-                              </th>
-                              <th style={{ padding: '10px', border: '1px solid black', backgroundColor: '#007bff', color: 'white' }}>
-                                Vị trí mộ
-                              </th>
+                      <div className={styles["tableContainer"]}>
+                      {/* Bảng dữ liệu */}
+                      <table className={styles["table"]}>
+                        <thead>
+                          <tr>
+                            <th>Họ và tên</th>
+                            <th>Quê quán</th>
+                            <th>Năm sinh</th>
+                            <th>Năm mất</th>
+                            <th>Vị trí mộ</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {currentData.map((row, index) => (
+                            <tr key={index}>
+                              <td>{row.hovaten || ""}</td>
+                              <td>{row.quequan || ""}</td>
+                              <td>{row.namsinh || ""}</td>
+                              <td>{row.nammat || ""}</td>
+                              <td>{`Khu: ${row.lo || ""}, Hàng: ${row.hang || ""}, Mộ: ${row.mo || ""}`}</td>
                             </tr>
-                          </thead>
-                          <tbody>
-                            {currentData.map((row, index) => (
-                              <tr key={index} style={{ backgroundColor: index % 2 === 0 ? '#e6f3ff' : 'white' }}>
-                                <td style={{ padding: '10px', border: '1px solid black' }}>{row.hovaten || ''}</td>
-                                <td style={{ padding: '10px', border: '1px solid black' }}>{row.quequan || ''}</td>
-                                <td style={{ padding: '10px', border: '1px solid black' }}>{row.namsinh || ''}</td>
-                                <td style={{ padding: '10px', border: '1px solid black' }}>{row.nammat || ''}</td>
-                                <td style={{ padding: '10px', border: '1px solid black' }}>{`Khu: ${row.lo || ''}, Hàng: ${row.hang || ''}, Mộ: ${row.mo || ''} `}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-
-                        {/* Phân trang */}
-                        <div style={{ marginTop: '20px', textAlign: 'center', marginBottom: '20px' }}>
-                          <button
-                            onClick={() => setCurrentPageds(prev => Math.max(prev - 1, 1))}
-                            disabled={currentPageds === 1}
-                            style={{ margin: '0 5px', padding: '5px 10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px' , fontFamily: 'Arial, sans-serif' }}
-                          >
-                            Trang trước
-                          </button>
-                          {displayedPages.map(page => (
-                            <button
-                              key={page}
-                              onClick={() => setCurrentPageds(page)}
-                              style={{
-                                margin: '0 5px',
-                                padding: '5px 10px',
-                                fontWeight: page === currentPageds ? 'bold' : 'normal',
-                                backgroundColor: page === currentPageds ? '#007bff' : 'white',
-                                color: page === currentPageds ? 'white' : 'black',
-                                borderRadius: '5px',
-                                fontFamily: 'Arial, sans-serif',
-                                border: 'none',
-                              }}
-                            >
-                              {page}
-                            </button>
                           ))}
+                        </tbody>
+                      </table>
+
+                      {/* Phân trang */}
+                      <div className={styles["pagination"]}>
+                        <button onClick={() => setCurrentPageds(prev => Math.max(prev - 1, 1))} disabled={currentPageds === 1}>
+                          Trang trước
+                        </button>
+
+                        {displayedPages.map(page => (
                           <button
-                            onClick={() => setCurrentPageds(prev => Math.min(prev + 1, totalPages))}
-                            disabled={currentPageds === totalPages}
-                            style={{ margin: '0 5px', padding: '5px 10px', fontFamily: 'Arial, sans-serif', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}
+                            key={page}
+                            onClick={() => setCurrentPageds(page)}
+                            className={`${styles.pageButton} ${page === currentPageds ? styles.active : ""}`}
                           >
-                            Trang sau
+                            {page}
                           </button>
-                        </div>
+                        ))}
+
+                        <button onClick={() => setCurrentPageds(prev => Math.min(prev + 1, totalPages))} disabled={currentPageds === totalPages}>
+                          Trang sau
+                        </button>
                       </div>
+                    </div>
                     )}
                   </>
                 )}
@@ -440,52 +404,44 @@ export const UserInterface = () => {
         )
         }
         {activeTab === "contact" && (
-            <div style={{ textAlign: 'center', fontFamily: 'Arial, sans-serif', paddingTop: '10px' }}>
-              <div style={{ marginTop: '20px', padding: '10px' }}>
+            <div className={styles["thongtinlh"]}>
+              <div className={styles["hinhanhgt"]}>
                 <img
                   src={"/gioithieu/textNTLS.png"}
                   alt="Hình ảnh hiện tại"
-                  style={{ width: '40vw',}}
                 />
               </div>
-            {/* Phần 1: Hình ảnh hiện tại */}
-            <div>
-              <img
-                src={images[currentIndex]}
-                alt="Hình ảnh hiện tại"
-                style={{ width: '70vw', borderRadius: '10px' }}
-              />
-            </div>
+              
+              {/* Phần 1: Hình ảnh hiện tại */}
+              <div className={styles["hinhanhht"]}>
+                <img
+                  src={images[currentIndex]}
+                  alt="Hình ảnh hiện tại"
+                />
+              </div>
 
-            {/* Phần 2: Danh sách thumbnail */}
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginTop: '20px' }}>
+              {/* Phần 2: Danh sách thumbnail */}
+              <div className={styles["dsThumbnail"]}>
                 {/* Nút chuyển trái */}
-                <button onClick={prevImage} style={{ marginRight: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px' }}>
+                <button onClick={prevImage}>
                   &lt;
                 </button>
 
                 {/* Danh sách 7 thumbnail */}
-                <div style={{ display: 'flex', gap: '10px' }}>
+                <div className={styles.dsThumbnailImg}>
                   {getVisibleThumbnails().map((thumbnail) => (
                     <img
                       key={thumbnail.index}
                       src={thumbnail.url}
                       alt={`Thumbnail ${thumbnail.index + 1}`}
-                      style={{
-                        width: '150px',
-                        height: '100px',
-                        borderRadius: '5px',
-                        opacity: thumbnail.index === currentIndex ? 1 : 0.6,
-                        cursor: 'pointer',
-                        border: thumbnail.index === currentIndex ? '2px solid blue' : 'none',
-                      }}
+                      className={thumbnail.index === currentIndex ? styles.active : ""}
                       onClick={() => handleThumbnailClick(thumbnail.index)}
                     />
                   ))}
                 </div>
 
                 {/* Nút chuyển phải */}
-                <button onClick={nextImage} style={{ marginLeft: '10px', fontSize: '20px', color: '#3e4095', backgroundColor: '#efeff6', border: 'none', borderRadius: '5px'  }}>
+                <button onClick={nextImage}>
                   &gt;
                 </button>
               </div>
@@ -498,7 +454,7 @@ export const UserInterface = () => {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            <div style={{ marginTop: '20px', color: '#373686', padding: '10px' }}>
+            <div className={styles["thongtinlhtext"]}>
               <h2>Thông tin liên hệ</h2>
               <h1>NGHĨA TRANG LIỆT SĨ TỈNH BÌNH THUẬN</h1>
               <p>Địa chỉ: Quốc lộ 1A, xã Hồng Sơn, huyện Hàm Thuận Bắc, tỉnh Bình Thuận</p>
